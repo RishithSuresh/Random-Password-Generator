@@ -362,61 +362,67 @@ class PasswordGeneratorGUI:
         self.analysis_text.delete(1.0, tk.END)
 
     def generate_password(self):
-        length = self.length_var.get()
+        try:
+            length = self.length_var.get()
 
-        # Build character set
-        characters = string.ascii_lowercase
+            # Build character set
+            characters = string.ascii_lowercase
 
-        if self.use_upper.get():
-            characters += string.ascii_uppercase
-        if self.use_digits.get():
-            characters += string.digits
-        if self.use_symbols.get():
-            characters += "!@#$%^&*()_+-=[]{}|;:,.<>?"
+            if self.use_upper.get():
+                characters += string.ascii_uppercase
+            if self.use_digits.get():
+                characters += string.digits
+            if self.use_symbols.get():
+                characters += "!@#$%^&*()_+-=[]{}|;:,.<>?"
 
-        # Remove ambiguous characters if requested
-        if self.exclude_ambiguous.get():
-            ambiguous = "0O1lI"
-            characters = ''.join(c for c in characters if c not in ambiguous)
-
-        if not characters:
-            messagebox.showerror("Error", "Please select at least one character type!")
-            return
-
-        # Generate password ensuring at least one character from each selected type
-        password_chars = []
-
-        # Ensure at least one character from each selected type
-        if self.use_upper.get():
-            upper_chars = string.ascii_uppercase
+            # Remove ambiguous characters if requested
             if self.exclude_ambiguous.get():
-                upper_chars = ''.join(c for c in upper_chars if c not in "O")
-            password_chars.append(random.choice(upper_chars))
+                ambiguous = "0O1lI"
+                characters = ''.join(c for c in characters if c not in ambiguous)
 
-        if self.use_digits.get():
-            digit_chars = string.digits
-            if self.exclude_ambiguous.get():
-                digit_chars = ''.join(c for c in digit_chars if c not in "01")
-            password_chars.append(random.choice(digit_chars))
+            if not characters:
+                messagebox.showerror("Error", "Please select at least one character type!")
+                return
 
-        if self.use_symbols.get():
-            symbol_chars = "!@#$%^&*()_+-=[]{}|;:,.<>?"
-            password_chars.append(random.choice(symbol_chars))
+            # Generate password ensuring at least one character from each selected type
+            password_chars = []
 
-        # Fill remaining length with random characters
-        remaining_length = length - len(password_chars)
-        for _ in range(remaining_length):
-            password_chars.append(random.choice(characters))
+            # Ensure at least one character from each selected type
+            if self.use_upper.get():
+                upper_chars = string.ascii_uppercase
+                if self.exclude_ambiguous.get():
+                    upper_chars = ''.join(c for c in upper_chars if c not in "O")
+                if upper_chars:
+                    password_chars.append(random.choice(upper_chars))
 
-        # Shuffle the password characters
-        random.shuffle(password_chars)
-        password = ''.join(password_chars)
+            if self.use_digits.get():
+                digit_chars = string.digits
+                if self.exclude_ambiguous.get():
+                    digit_chars = ''.join(c for c in digit_chars if c not in "01")
+                if digit_chars:
+                    password_chars.append(random.choice(digit_chars))
 
-        # Display password
-        self.password_var.set(password)
+            if self.use_symbols.get():
+                symbol_chars = "!@#$%^&*()_+-=[]{}|;:,.<>?"
+                password_chars.append(random.choice(symbol_chars))
 
-        # Show strength
-        self.show_strength(password)
+            # Fill remaining length with random characters
+            remaining_length = length - len(password_chars)
+            for _ in range(remaining_length):
+                password_chars.append(random.choice(characters))
+
+            # Shuffle the password characters
+            random.shuffle(password_chars)
+            password = ''.join(password_chars)
+
+            # Display password
+            self.password_var.set(password)
+
+            # Show strength
+            self.show_strength(password)
+
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to generate password: {str(e)}")
         
     def show_strength(self, password):
         strength, score, _ = self.evaluate_password_strength(password)
