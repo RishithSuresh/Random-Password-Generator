@@ -1,33 +1,33 @@
-# 🔑 SecurePass Generator
+# 🔍 Password Strength Analyzer
 
-A modern, sleek password generator and analyzer with an intuitive GUI and powerful security features. Generate ultra-secure passwords and analyze password strength with real-time feedback.
+A comprehensive password security analysis tool with strict evaluation criteria and detailed feedback. Analyze password strength in real-time with professional-grade security assessment.
 
 ## ✨ Features
 
-### Password Generation
-- Generate passwords of any length (4-50 characters)
-- Customizable character sets:
-  - Uppercase letters (A-Z)
-  - Lowercase letters (a-z)
-  - Digits (0-9)
-  - Symbols (!@#$%^&*)
-- Option to exclude ambiguous characters (0, O, l, 1, I)
-- Real-time password strength evaluation
-- Copy to clipboard functionality
-- Save passwords with timestamps
+### Comprehensive Password Analysis
+- **Strict Security Criteria**: Professional-grade evaluation with rigorous standards
+- **Real-time Analysis**: Instant feedback as you type
+- **Detailed Scoring**: 100-point scoring system with strict thresholds
+- **Multiple Security Checks**:
+  - Length analysis (8-16+ characters)
+  - Character variety (uppercase, lowercase, digits, symbols)
+  - Pattern detection (repeated sequences, common patterns)
+  - Dictionary word detection
+  - Sequential character analysis
+  - Entropy calculation
 
-### Password Analysis
-- Comprehensive password strength evaluation
-- Detailed security scoring (0-100)
-- Character composition analysis
-- Pattern detection (repeated sequences, common patterns)
-- Security recommendations
-- Visual strength indicators
+### Advanced Security Features
+- **Crack Time Estimation**: Realistic time-to-crack calculations
+- **Visual Strength Indicators**: Color-coded strength levels
+- **Comprehensive Reports**: Detailed security analysis with recommendations
+- **Professional Feedback**: Specific improvement suggestions
+- **Security Best Practices**: Built-in security education
 
-### User Interfaces
-- **Modern GUI**: Sleek dark theme with smooth animations and intuitive controls
-- **Classic CLI**: Simple command-line interface for quick generation
-- **Smart Launcher**: Choose your preferred interface at startup
+### User Interface
+- **Modern GUI**: Sleek dark theme with professional design
+- **Real-time Updates**: Instant analysis as you type
+- **Password Visibility Toggle**: Show/hide password option
+- **Detailed Reports**: Comprehensive analysis in scrollable text area
 - **Executable Version**: Standalone .exe file for easy distribution
 
 ## 🚀 Quick Start
@@ -36,15 +36,21 @@ A modern, sleek password generator and analyzer with an intuitive GUI and powerf
 ```bash
 python main.py
 ```
-Choose between GUI (1) or CLI (2) interface.
+Choose between GUI Analyzer (1) or CLI Generator (2).
 
 ### Option 2: Direct Launch
 ```bash
-# Launch GUI directly
-python password_generator_gui.py
+# Launch Password Analyzer directly
+python password_analyzer.py
 
-# Launch CLI directly
+# Launch CLI Generator directly
 python password_generator.py
+```
+
+### Option 3: Use the Executable
+```bash
+# Run the standalone executable (no Python required)
+dist\Password-Analyzer.exe
 ```
 
 ## 📋 Requirements

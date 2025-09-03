@@ -8,24 +8,24 @@ import sys
 import os
 
 def show_menu():
-    print("🔑 SecurePass Generator")
+    print("🔍 Password Strength Analyzer")
     print("=" * 40)
     print("Choose your interface:")
-    print("1. 🖥️  Modern GUI Interface")
-    print("2. 💻 Classic Command Line")
+    print("1. 🖥️  Modern GUI Analyzer")
+    print("2. 💻 Classic Command Line Generator")
     print("3. ❌ Exit")
     print("=" * 40)
 
-def launch_gui():
+def launch_analyzer():
     try:
-        from password_generator_gui import main as gui_main
-        print("Launching GUI...")
-        gui_main()
+        from password_analyzer import main as analyzer_main
+        print("Launching Password Analyzer...")
+        analyzer_main()
     except ImportError as e:
-        print(f"Error: Could not import GUI module: {e}")
-        print("Make sure password_generator_gui.py is in the same directory.")
+        print(f"Error: Could not import analyzer module: {e}")
+        print("Make sure password_analyzer.py is in the same directory.")
     except Exception as e:
-        print(f"Error launching GUI: {e}")
+        print(f"Error launching analyzer: {e}")
 
 def launch_cli():
     try:
@@ -43,9 +43,9 @@ def main():
         show_menu()
         try:
             choice = input("Enter your choice (1-3): ").strip()
-            
+
             if choice == "1":
-                launch_gui()
+                launch_analyzer()
                 break
             elif choice == "2":
                 launch_cli()
@@ -58,7 +58,7 @@ def main():
             else:
                 print("❌ Invalid choice. Please enter 1, 2, or 3.")
                 input("Press Enter to continue...")
-                
+
         except KeyboardInterrupt:
             print("\n👋 Goodbye!")
             break
