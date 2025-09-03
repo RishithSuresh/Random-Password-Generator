@@ -1,6 +1,6 @@
-# 🔑 Advanced Password Generator & Analyzer
+# 🔑 SecurePass Generator
 
-A comprehensive Python application for generating secure passwords and analyzing password strength with both command-line and graphical interfaces.
+A modern, sleek password generator and analyzer with an intuitive GUI and powerful security features. Generate ultra-secure passwords and analyze password strength with real-time feedback.
 
 ## ✨ Features
 
@@ -25,9 +25,10 @@ A comprehensive Python application for generating secure passwords and analyzing
 - Visual strength indicators
 
 ### User Interfaces
-- **GUI Version**: Modern, aesthetic graphical interface with tabs
-- **CLI Version**: Simple command-line interface
-- **Launcher**: Choose between GUI or CLI at startup
+- **Modern GUI**: Sleek dark theme with smooth animations and intuitive controls
+- **Classic CLI**: Simple command-line interface for quick generation
+- **Smart Launcher**: Choose your preferred interface at startup
+- **Executable Version**: Standalone .exe file for easy distribution
 
 ## 🚀 Quick Start
 
@@ -49,25 +50,49 @@ python password_generator.py
 ## 📋 Requirements
 
 - Python 3.x
-- No external dependencies (uses only built-in modules)
+- No external dependencies for running (uses only built-in modules)
 - tkinter (included with most Python installations)
+- PyInstaller (only needed for building executable)
 
-## 🖼️ GUI Features
+## 📦 Building Executable
 
-The graphical interface includes:
+To create a standalone executable that others can use without Python:
 
-### Generate Password Tab
-- Interactive length slider (4-50 characters)
-- Checkboxes for character type selection
-- Real-time password strength display
-- One-click copy and save functionality
+### Option 1: Use the Build Script (Recommended)
+```bash
+python build_exe.py
+```
 
-### Analyze Password Tab
-- Text input for password analysis
-- Detailed strength evaluation
-- Character composition breakdown
-- Security recommendations
-- Color-coded strength indicators
+### Option 2: Use the Batch File (Windows)
+```bash
+build.bat
+```
+
+### Option 3: Manual Build
+```bash
+pip install pyinstaller
+pyinstaller --onefile --windowed --name="SecurePass-Generator" password_generator_gui.py
+```
+
+The executable will be created in the `dist/` folder as `SecurePass-Generator.exe`
+
+## 🖼️ Modern GUI Features
+
+The sleek graphical interface includes:
+
+### Generate Password Section
+- Smooth length slider (8-32 characters)
+- Modern toggle switches for character types
+- Real-time strength visualization with animated bars
+- One-click copy with visual feedback
+- Smart password generation ensuring character variety
+
+### Analyze Password Section
+- Real-time analysis as you type
+- Animated strength indicators
+- Comprehensive security scoring
+- Detailed feedback and recommendations
+- Beautiful dark theme with accent colors
 
 ## 💻 CLI Features
 
@@ -97,13 +122,16 @@ The strength analyzer evaluates passwords based on:
 ## 📁 File Structure
 
 ```
-Random Password Generator/
-├── main.py                    # Main launcher script
-├── password_generator_gui.py  # GUI application
-├── password_generator.py      # Original CLI version
-├── requirements.txt           # Dependencies (none required)
+SecurePass Generator/
+├── main.py                    # Smart launcher script
+├── password_generator_gui.py  # Modern GUI application
+├── password_generator.py      # Classic CLI version
+├── build_exe.py              # Executable builder script
+├── build.bat                 # Windows build batch file
+├── requirements.txt          # Build dependencies
 ├── passwords.txt             # Saved passwords (auto-created)
-└── README.md                 # This file
+├── dist/                     # Executable output folder
+└── README.md                 # Documentation
 ```
 
 ## 🔒 Security Best Practices

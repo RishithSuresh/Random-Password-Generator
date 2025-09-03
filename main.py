@@ -8,11 +8,11 @@ import sys
 import os
 
 def show_menu():
-    print("🔑 Password Generator & Analyzer")
+    print("🔑 SecurePass Generator")
     print("=" * 40)
     print("Choose your interface:")
-    print("1. 🖥️  Graphical Interface (GUI)")
-    print("2. 💻 Command Line Interface")
+    print("1. 🖥️  Modern GUI Interface")
+    print("2. 💻 Classic Command Line")
     print("3. ❌ Exit")
     print("=" * 40)
 

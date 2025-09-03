@@ -1,12 +1,1 @@
-# No external dependencies required
-# This project uses only Python standard library modules:
-# - tkinter (GUI framework - included with Python)
-# - random (password generation)
-# - string (character sets)
-# - re (regular expressions for pattern matching)
-# - datetime (timestamps for saved passwords)
-
-# If you want to add additional features in the future, consider:
-# - pyperclip (enhanced clipboard functionality)
-# - cryptography (for password hashing/encryption)
-# - matplotlib (for password strength visualization)
+pyinstaller==6.3.0
